@@ -81,7 +81,7 @@ theme: minimal-mistakes-jekyll
 author:
   name             : "Solomon UDOH"
   avatar           : "/images/bio_photo.jpg" # path of avatar image, e.g. "/assets/images/bio-photo.jpg"
-  bio              : "Just a random guy trying to learning."
+  bio              : "Just another random guy trying to understand how things work."
   location         : "Aberdeen, UK"
   email            :
   uri              :
