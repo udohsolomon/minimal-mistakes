@@ -22,7 +22,7 @@ print_hi('Tom')
 #=> prints 'Hi, Tom' to STDOUT.
 ```
 
-Also checking out this maths function:
+Also checking out this maths function witk LateX:
 
 $$y = {\sqrt{x^2+(x-1)} \over x-3} + \left| 2x \over x^{0.5x} \right|$$
 
