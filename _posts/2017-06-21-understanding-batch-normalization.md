@@ -48,18 +48,17 @@ $${a}^{[1]} \xrightarrow{W^{[2]}, b^{[2]}} {Z^{[2]}} \xrightarrow[BN]{\beta^{[2]
 
 With these new set of parameters in our algorithm, we can then use whatever optimization technique we want to. So far, we've been talking about batch norm as if we were training on the entire training set at thesame time, like we're using batch gradient descent. However, It is worth noting that in practice, batch normalization is usually applied with mini-batches in training set. 
 
-
-
-$$\begin{verbatim}
+```ruby
 for t = 1 ... n(mini-batches)
-  compute forward propagation on $$X^{t}$$
-	In each hidden layer, use BN to replace $$Z^{[l]}$$ with $${\hat{Z}^{[l]}}$$
-  compute  $$dW^{[l]}$$, $$d{\beta}^{[l]}$$, $$d{\gamma}^{[l]}$$ using backward propagation
+  compute forward propagation on X{t}
+	in each hidden layer, use BN to replace Z[l] with z^[l]
+  compute  dW[l], dbeta, dgamma using backward propagation
   
-  update parameters $${dW}^{[l]} := {dW}^{[l]} - {\alpha}{dW}^{[l]} $$
-		    $${\beta}^{[l]} := {\beta}^{[l]} - {\alpha}d{\beta}^{[l]} $$
-		    $${\gamma}^{[l]} := {\gamma}^{[l]} - {\alpha}d{\gamma}^{[l]}
-\end{verbatim}$$
+  update parameters dW[l] := dW[l] - alpha.dW[l]
+		    dbeta := dbeta - alpha.dbeta
+		    dgamma:= dgamma- alpha.dgamma
+end
+```
 
 Also checking out this maths function witk LateX:
 
