@@ -50,8 +50,7 @@ With these new set of parameters in our algorithm, we can then use whatever opti
 
 
 
-$$
-```ruby
+$$\begin{verbatim}
 for t = 1 ... n(mini-batches)
   compute forward propagation on $$X^{t}$$
 	In each hidden layer, use BN to replace $$Z^{[l]}$$ with $${\hat{Z}^{[l]}}$$
@@ -60,9 +59,7 @@ for t = 1 ... n(mini-batches)
   update parameters $${dW}^{[l]} := {dW}^{[l]} - {\alpha}{dW}^{[l]} $$
 		    $${\beta}^{[l]} := {\beta}^{[l]} - {\alpha}d{\beta}^{[l]} $$
 		    $${\gamma}^{[l]} := {\gamma}^{[l]} - {\alpha}d{\gamma}^{[l]}
-end
-```
-$$
+\end{verbatim}$$
 
 Also checking out this maths function witk LateX:
 
