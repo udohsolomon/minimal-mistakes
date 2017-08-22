@@ -37,11 +37,13 @@ Considering our deep learning example from the perspective of a certain layer, s
 This idea of your data distribution changing is known as $$\textbf {Covariate shift} $$. The idea is that if you've learned some $$X $$ to $$Y$$ mapping $$ X \rightarrow Y $$, and at any time the distribution of $$ X $$ changes, then you might need to retrain your learning algorithm.
 
 So what batch norm does is to reduce the the amount that the distribution of the hidden units shift around. What batch norm does is that no matter how the parameter of the previous layer changes, their mean and variance will remain thesame. It limits the amount to which updating the parameters of the earlier layers can can affect the distribution of values that the current layer now sees and therefore has to learn on. This makes the values of the current layer to become more stable and provide the later layers more firm ground to stand on. Another interesting thing about batch norm is that it has a slight regularization effect. Though this is really not the intent of batch norm but sometimes it has this intended or unintended effect on your learning algorithm. 
-
 ## Implementing Batch Normalization
-Given some intermediate values in neural network;
-
+Given some intermediate values in a neural network, we can add batch norm by first, feeding the input $$X$$ into the first hidden layer $$ L^{1} $$ and then compute $$ Z^{[1]} $$ govern by the parameters $$ W^{[1]}, b^{[1]} $$. We then take this parameter $$ Z^{[1]} $$ and apply batch norm govern by by the parameters $$ {\beta^{[1]}}$$ and $${\gamma^{[1]}}$$. This will give us the new normalized value $${\hat{Z}^{[1]}}$$, which we then feed into the activation function to give us $${a}^{[1]} = {g}^{[1]}{({\hat{Z}^{[1]}})}$$.
 $$ {X} \xrightarrow{W^{[1]}, b^{[1]}} {Z^{[1]}} \xrightarrow[Batch Norm (BN)]{\beta^{[1]}, \gamma^{[1]}} {\hat{Z}^{[1]}}\rightarrow{a}^{[1]} = {g}^{[1]}{({\hat{Z}^{[1]}})} $$
+
+Now we've done the computation for the first hidden layer $$ L^{1} $$. Next, we take the value $${a}^{[1]}$$ and use it to compute the batch norm for the next hidden layer and so on. 
+$$ {Z^{[1]}} \xrightarrow{W^{[2]}, b^{[2]}} {Z^{[2]}} \xrightarrow[Batch Norm (BN)]{\beta^{[2]}, \gamma^{[2]}} {\hat{Z}^{[2]}}\rightarrow{a}^{[2]}$$
+
 
 
 
