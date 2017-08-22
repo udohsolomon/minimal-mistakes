@@ -44,7 +44,7 @@ $$ {X} \xrightarrow{W^{[1]}, b^{[1]}} {Z^{[1]}} \xrightarrow[Batch Norm (BN)]{\b
 
 Now we've done the computation for the first hidden layer $$ L^{1} $$. Next, we take the value $${a}^{[1]}$$ and use it to compute the batch norm for the next hidden layer and so on. 
 
-$$ {Z^{[1]}} \xrightarrow{W^{[2]}, b^{[2]}} \xrightarrow[BN]{\beta^{[2]}, \gamma^{[2]}} {\hat{Z}^{[2]}}\rightarrow{a}^{[2]}$$
+$$\xrightarrow{W^{[2]}, b^{[2]}} {Z^{[1]}} \xrightarrow[BN]{\beta^{[2]}, \gamma^{[2]}} {\hat{Z}^{[2]}}\rightarrow{a}^{[2]}$$
 
 
 
