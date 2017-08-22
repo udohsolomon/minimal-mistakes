@@ -41,7 +41,7 @@ So what batch norm does is to reduce the the amount that the distribution of the
 ## Implementing Batch Normalization
 Given some intermediate values in neural network;
 
-$$\rightarrow_{\beta} $$
+$$\xrightarrow{beta} $$
 
 
 
