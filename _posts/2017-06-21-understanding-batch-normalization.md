@@ -41,7 +41,7 @@ So what batch norm does is to reduce the the amount that the distribution of the
 ## Implementing Batch Normalization
 Given some intermediate values in neural network;
 
-$$ {X} \xrightarrow{W^{[1]}, b^{[1]}} {Z^{[1]}} \xrightarrow[Batch Norm (BN)]{\beta^{[1]}, \gamma^{[1]}} {\hat{Z}^{[1]}}\rightarrow{a}^{[1]} = {g}^{[1]}{(\hat{Z}^{[1]} $$
+$$ {X} \xrightarrow{W^{[1]}, b^{[1]}} {Z^{[1]}} \xrightarrow[Batch Norm (BN)]{\beta^{[1]}, \gamma^{[1]}} {\hat{Z}^{[1]}}\rightarrow{a}^{[1]} = {g}^{[1]} $$
 
 
 
