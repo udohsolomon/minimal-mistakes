@@ -50,7 +50,7 @@ With these new set of parameters in our algorithm, we can then use whatever opti
 
 
 
-
+$$
 ```ruby
 for t = 1 ... n(mini-batches)
   compute forward propagation on $$X^{t}$$
@@ -62,6 +62,7 @@ for t = 1 ... n(mini-batches)
 		    $${\gamma}^{[l]} := {\gamma}^{[l]} - {\alpha}d{\gamma}^{[l]}
 end
 ```
+$$
 
 Also checking out this maths function witk LateX:
 
