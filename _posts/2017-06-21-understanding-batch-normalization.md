@@ -22,7 +22,7 @@ $$\sigma^{2} = \frac{1}{m}\sum_{i=1}^{m}{(x_{i} - \varphi)}^{2}$$
 
 $$ X = \frac{X} {\sigma^{2} }$$
 
-![image-center]({{ site.url }}{{ site.baseurl }}/assets/images/NNcontour.png){: .align-center}
+![image-center]({{ site.url }}{{ site.baseurl }}/assets/images/gradientdescent.png){: .align-center}
 
 As we saw in the post, normalizing the input can turn the contours of our learning problem from a very elongated shape to something very more rounded which makes it easier for our gradient descent algorithm to optimize.
 
@@ -47,7 +47,6 @@ Now we've done the computation for the first hidden layer $$ L^{1} $$. Next, we 
 $${a}^{[1]} \xrightarrow{W^{[2]}, b^{[2]}} {Z^{[2]}} \xrightarrow[BN]{\beta^{[2]}, \gamma^{[2]}} {\hat{Z}^{[2]}}\rightarrow{a}^{[2]}$$
 
 With these new set of parameters in our algorithm, we can then use whatever optimization technique we want to. So far, we've been talking about batch norm as if we were training on the entire training set at thesame time, like we're using batch gradient descent. However, It is worth noting that in practice, batch normalization is usually applied with mini-batches in training set. 
-
 ```ruby
 for t = 1 ... n(mini-batches)
   compute forward propagation on X{t}
