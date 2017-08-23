@@ -86,9 +86,30 @@ $$Z_1^{[1](1)} = W_1^{[1]T}{X^{(1)}}+b_1^{[1]} $$, $$a_1^{[1](1)} = {\sigma}(Z_1
 $$Z_2^{[1](2)} = W_2^{[1]T}{X^{(2)}}+b_2^{[1]} $$, $$a_2^{[1](2)} = {\sigma}(Z_3^{[1](2)})$$
 ## Activation functions
 The activation function is a non linear function that allows our network to compute complicated problems using only small number of nodes. When working with neural network, one of the choices you get to make is what activation function to use. The activation function is applied elementwise. The different types and the most common are the sigmoid, tanh, ReLU, Leaky ReLU, and maxout. The ReLU is know as the Rectified Linear Unit, it has a very simple shape and it is the commonly used activation function. 
-## Fun example: Predicting car prices
+# Fun example: Predicting car prices
 With the little background and knowledge you have got so far, let us see how we can apply neural network in prediction the price of a car. We decided to predict the prices of cars since this is a practical example most people can relate with. For this example, we are going to only consider one model of car. The car brand we're considering is Toyota Camry with the following features: The age of the car, the Km travelled, the fuel type and we are going to predict the price of the car. Due to the limited data we have and some important feautures missing, our model will certainly not be perfect since these important missing features also impact the prices of cars. However, the idea is to use example and dataset most people can relate with and also to keep things very simple. 
-# Data exploration
+## Data exploration
+Before we start our predictive analyses using neural network, let us first take a visual look of our data and try to understand how each of the features are distrubuted against the price. Here is the first 5 lines of the Toyota camry file that shows us what the data actually look like. 
+## Data normalization
+One of the most important steps in machine learning is called $${\textbf{normalization}}$$, it is also known as feauture scaling or in simple term data preprocessing. Since our neural network model only works with numbers, the idea of feauture scaling is to convert the data to almost thesame scale and as small as possible. Normalizing the input features can speed up learning by making computation faster.
+
+In our example, the km travelled are between 0 and 350km, the fuel type is binary diesel/petrol, the age is between 0 and 40 and the price ranges between $500 and $40k. 
+We are going to normalize the km travelled and the age using mean and variance in order to bring them to thesame scale. Since the fuel type is binary, we're going to transform it to values of -1 and +1. Since what we are going to be predicting is the price and the output of our neural network is going to be between 0 and 1, it will be good for us to normalize this between [0, 1].
+For both the km travelled and the age, the normalized equations we will be using are expressed as follow;
+
+$$\varphi = \frac{1}{m}\sum_{i=1}^{m} x_{i}$$ 
+
+$$ X = x_{i} - \varphi $$ 
+
+$$\sigma^{2} = \frac{1}{m}\sum_{i=1}^{m}{(x_{i} - \varphi)}^{2}$$ 
+
+$$ X = \frac{X} {\sigma^{2} }$$
+
+The formular for the normalized car price is expressed as:
+
+$$\frac{x_i - min(x)}{max(x) - min(x)}$$
+
+
 
 ```ruby
 def print_hi(name)
