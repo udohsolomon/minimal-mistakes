@@ -86,6 +86,8 @@ $$Z_1^{[1](1)} = W_1^{[1]T}{X^{(1)}}+b_1^{[1]} $$, $$a_1^{[1](1)} = {\sigma}(Z_1
 $$Z_2^{[1](2)} = W_2^{[1]T}{X^{(2)}}+b_2^{[1]} $$, $$a_2^{[1](2)} = {\sigma}(Z_3^{[1](2)})$$
 ## Activation functions
 The activation function is a non linear function that allows our network to compute complicated problems using only small number of nodes. When working with neural network, one of the choices you get to make is what activation function to use. The activation function is applied elementwise. The different types and the most common are the sigmoid, tanh, ReLU, Leaky ReLU, and maxout. The ReLU is know as the Rectified Linear Unit, it has a very simple shape and it is the commonly used activation function. 
+## Fun example of neural network
+With the little background and knowledge you have got so far, let us see how we can apply neural network in prediction the price of a car. We decided to predict the prices of cars since this is a practical example most people can relate with. For this example, we are going to only consider one model of car. The car brand we're considering is Toyota Camry with the following features: The age of the car, the Km travelled, the fuel type and we are going to predict the price of the car. Due to the limited data we have and some important feautures missing, our model will certainly not be perfect since these important missing features also impact the prices of cars. However, the idea is to use example and dataset most people can relate with and also to keep things very simple. 
 
 ```ruby
 def print_hi(name)
