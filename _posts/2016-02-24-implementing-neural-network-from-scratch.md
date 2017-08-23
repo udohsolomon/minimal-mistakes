@@ -26,9 +26,11 @@ $$Z_1^{[1]} = W_1^{[1]T}{X}+b_1^{[1]} $$, $$a_1^{[1]} = {\sigma}(Z_1^{[1]})$$
 $$Z_2^{[1]} = W_2^{[1]T}{X}+b_2^{[1]} $$, $$a_2^{[1]} = {\sigma}(Z_3^{[1]})$$
 
 $$Z_3^{[1]} = W_3^{[1]T}{X}+b_3^{[1]} $$, $$a_3^{[1]} = {\sigma}(Z_3^{[1]})$$
+
 We will start by taking the values of $$Z$$ and vectorize them. First let us take these values and stack them into a matrix.
 
-$$\begin{bmatrix}
+$$Z_1^{[1]} =
+\begin{bmatrix}
 	\dots & W_1^{[1]T} & \dots \\
 	\dots & W_2^{[1]T} & \dots \\
 	\dots & W_3^{[1]T} & \dots 
