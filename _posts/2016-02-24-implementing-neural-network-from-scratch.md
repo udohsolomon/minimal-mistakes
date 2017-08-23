@@ -29,8 +29,7 @@ $$Z_3^{[1]} = W_3^{[1]T}{X}+b_3^{[1]} $$, $$a_3^{[1]} = {\sigma}(Z_3^{[1]})$$
 
 We will start by taking the values of $$Z$$ and vectorize them. First let us take these values and stack them into a matrix.
 
-$$Z_1^{[1]} =
-\begin{bmatrix}
+$$\begin{bmatrix}
 	\dots & W_1^{[1]T} & \dots \\
 	\dots & W_2^{[1]T} & \dots \\
 	\dots & W_3^{[1]T} & \dots 
@@ -47,7 +46,33 @@ $$\begin{bmatrix}
 	b_3^{[1]}
 \end{bmatrix}$$
 
+We can then compute this matrix to have $$Z^{[1]}$$ as follows
 
+$$Z^{[1]} =
+\begin{bmatrix}
+	W_1^{[1]T} + b_1^{[1]}\\
+	W_2^{[1]T} + b_2^{[1]}\\
+	W_3^{[1]T} + b_3^{[1]}
+\end{bmatrix}$$
+=
+$$\begin{bmatrix}
+	Z_1^{[1]}\\
+	Z_2^{[1]}\\
+	Z_3^{[1]}
+\end{bmatrix}$$
+
+Similarly, we take the elements of $$a^{[l]$$ and stack them together to obtain our $$a^{[1]}$$;
+
+$$a^{[1]}
+\begin{bmatrix}
+	a_1^{[1]}\\
+	a_2^{[1]}\\
+	a_3^{[1]}
+\end{bmatrix}$$
+= 
+$${\sigma}(Z_1^{[1]})$$
+
+where $${\sigma}$$ is the sigmoid function that takes in the four elements of $$Z$$ and applies the sigmoid function elementwise to it. 
 
 
 
