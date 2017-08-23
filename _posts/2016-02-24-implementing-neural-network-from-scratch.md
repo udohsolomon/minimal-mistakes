@@ -75,7 +75,7 @@ $${\sigma}(Z_1^{[1]})$$
 where $${\sigma}$$ is the sigmoid function that takes in the four elements of $$Z$$ and applies the sigmoid function elementwise to it. 
 From our example, it is worth nothing that the dimensions of $$W$$ is a (3*3) matrix, while that of $$X$$ is a (3X1) matrix and $$b$$ is a (3X1) matrix. 
 ## Vectorizing across multiple examples
-So far what we have been doing is considering a single training example where for a given input wan can predict the output $${\hat{y}}$$. For most practical applications in machine learning, there are always large number of training examples. For the purpose of this post, let us call it $$m$$ training examples. Now for $$m$$ number of training examples, we need to repeat the process of predicting the output {\hat{y}}
+So far what we have been doing is considering a single training example where for a given input wan can predict the output $${\hat{y}}$$. For most practical applications in machine learning, there are always large number of training examples. For the purpose of this post, let us call it $$m$$ training examples. Now for $$m$$ number of training examples, we need to repeat the process of predicting the output $${\hat{y}}$$
 
 For large number of training examples, we repeat each steps as follow
 	
@@ -84,7 +84,8 @@ for i=1 to m:
 $$Z_1^{[1](1)} = W_1^{[1]T}{X^{(1)}}+b_1^{[1]} $$, $$a_1^{[1](1)} = {\sigma}(Z_1^{[1](1)})$$
 
 $$Z_2^{[1](2)} = W_2^{[1]T}{X^{(2)}}+b_2^{[1]} $$, $$a_2^{[1](2)} = {\sigma}(Z_3^{[1](2)})$$
-		
+## Activation functions
+The activation function is a non linear function that allows our network to compute complicated problems using only small number of nodes. When working with neural network, one of the choices you get to make is what activation function to use. The activation function is applied elementwise. The different types and the most common are the sigmoid, tanh, ReLU, Leaky ReLU, and maxout. The ReLU is know as the Rectified Linear Unit, it has a very simple shape and it is the commonly used activation function. 
 
 ```ruby
 def print_hi(name)
