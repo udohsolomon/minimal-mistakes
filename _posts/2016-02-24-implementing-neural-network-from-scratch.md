@@ -15,6 +15,12 @@ I'm going to try as much as possible to breakdown some of the concepts as much a
 
 In a neural network, we have the input layer, the hidden layer and the output layer. The input layer consists of features known as the input features. In our example, they are represented as $${x_1}$$, $${x_2}$$ and $${x_3}$$ which are fed into the hidden layer. The hidden layer on the other hand consists of various nodes. It is termed hidden layer because the true values for the nodes in the middle are not observe in the training set. In other words, we don't see what they should be in the training set. The output layer is responsible for generating the predicted value $${\hat{y}}$$.
 
+We will introduce a concept called the $$ \textbf{activations}$$. These are the values that different layers of the network are passing on to the subsequent layers. This means that the input layer passes on the value $$X$$ to the hidden layer. This is called the $$ \textbf{activations}$$ of the input layer denoted as $${{a}^{[0]}}$$. The hidden layer will inturn generate some form of activations denoted as $${{a}^{[1]}}$$. So the first node in the hidden layer will generate a value $${[{a}_{1}^{[1]}]}$$, the second node will generate the value $${[{a}_{1}^{[1]}]}$$ and so on till it gets to $${[{a}_{n}^{[2]}]}$$ which indicates the last node of that hidden layer. Finally, the output layer will generate a value $${[{a}^{[2]}\]}$$ which is just a real number. So $${\hat{y}}$$, our target out will take the value of $${[{a}^{[2]}]}$$,  $${[{a}^{[2]}]} = {\hat{y}} $$.
+
+
+
+
+
 
 
 ```ruby
