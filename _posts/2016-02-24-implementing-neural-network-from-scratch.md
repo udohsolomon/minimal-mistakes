@@ -22,11 +22,11 @@ Now that you have a better understanding of a neural network representation, we 
 
 For a neural network representation of our example, we will have the following set of equations;
 
-$$ Z_1^{[1]} = W_1^{[1]T}{x}+b_1^{[1]} $$, $$a_1^{[1]} = {\sigma}(Z_1^{[1]})$$
+$$Z_1^{[1]} = W_1^{[1]T}{x}+b_1^{[1]} $$, $$a_1^{[1]} = {\sigma}(Z_1^{[1]})$$
 
-$$ Z_2^{[1]} = W_2^{[1]T}{x}+b_2^{[1]} $$, $$a_2^{[1]} = {\sigma}(Z_3^{[1]})$$
+$$Z_2^{[1]} = W_2^{[1]T}{x}+b_2^{[1]} $$, $$a_2^{[1]} = {\sigma}(Z_3^{[1]})$$
 
-$$ Z_3^{[1]} = W_3^{[1]T}{x}+b_3^{[1]} $$, $$a_3^{[1]} = {\sigma}(Z_3^{[1]})$$
+$$Z_3^{[1]} = W_3^{[1]T}{x}+b_3^{[1]} $$, $$a_3^{[1]} = {\sigma}(Z_3^{[1]})$$
 
 
 
