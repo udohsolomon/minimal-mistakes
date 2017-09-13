@@ -103,13 +103,13 @@ $$ X = x_{i} - \varphi $$
 
 $$\sigma^{2} = \frac{1}{m}\sum_{i=1}^{m}{(x_{i} - \varphi)}^{2}$$ 
 
-$$ X = \frac{X} {\sigma^{2} }$$
+$$ X_norm = \frac{X} {\sigma^{2} }$$
 
 The formular for the normalized car price is expressed as:
 
 $$\frac{x_i - min(x)}{max(x) - min(x)}$$
 
-
+where $$x_i$$ is the individual car price and $$x$$ is the car prices in our dataset. 
 
 ```ruby
 def print_hi(name)
