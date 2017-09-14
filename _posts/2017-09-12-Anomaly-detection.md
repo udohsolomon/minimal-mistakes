@@ -58,7 +58,7 @@ Instead of modelling our $$p(x)$$ separately like we did in Gaussian normal dist
 
 Given parameters: $$\mu \in {\R}^n$$ and $$\Sigma \in {\R}^{n \times n}$$ (covariance matrix)
 
- $$p(x; \space \mu, \space \Sigma) = {\frac{1}{(2\pi)^{\frac{n}{2}}|\Sigma|^{frac{1}{2}}}}$$
+ $$p(x; \space \mu, \space \Sigma) = {\frac{1}{(2\pi)^{\frac{n}{2}}|\Sigma|^{\frac{1}{2}}}}$$
 
 
 
