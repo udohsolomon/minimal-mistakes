@@ -94,9 +94,11 @@ from sklearn.metrics import f1_score
 ```
 <figure>
     <a href="/assets/images/trainfeature.png"><img src="/assets/images/trainfeature.png"></a>
-    <figcaption>Datapoints of Throughput vs Latency.</figcaption>
 </figure>
 
+<figure>
+    <a href="/assets/images/outlier.png"><img src="/assets/images/outlier.png"></a>
+</figure>
 
  
 
