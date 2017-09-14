@@ -96,10 +96,67 @@ from sklearn.metrics import f1_score
     <a href="/assets/images/trainfeature.png"><img src="/assets/images/trainfeature.png"></a>
 </figure>
 
+As shown in the figure, we can see the datapoints tightly clustered at the centre with some few points further away from the cluster. Merely looking at the graph, we can easily tell from this simple example those points futher away from the cluster could be considered anomalies. But our goal here is to use the multivariate Gaussian model algorithm to estimate the each feature in the datapoints. For us to achieve this, we may want to define some certain functions that made up our Gaussian distribution, compute the mean and variance for each feature in our dataset.
+
+```python
+
+#define the function for reading our data
+def read_dataset(filePath, delimiter=','):
+    return genfromtxt(filePath, delimiter=delimiter)
+
+#define paramter for feature normalization
+def feature_normalize(dataset):
+    mu = np.mean(dataset, axis=0)
+    sigma = np.std(dataset, axis=0)
+    return (dataset - mu) / sigma
+
+#define the parameter and estimate the Gaussian distribution
+def estimate_gaussian(dataset):
+    mu = np.mean(dataset, axis=0)
+    sigma = np.cov(dataset.T)
+    return mu, sigma
+
+#define the multivariate Gaussian distribution
+def multivariate_gaussian(dataset, mu, sigma):
+    p = multivariate_normal(mean=mu, cov=sigma)
+    return p.pdf(dataset)
+```
+
+Next is for us to define a function $$\epsilon$$ that will help us get the optimal value for the threshold which will be use to separate the normal and the anomalous datapoints. We are going to make use of the cross validation dataset to learn the optimal values of $$\epsilon$$. To achieve this, we are going to try different values in a range of learned probabilities. We will the calculate the f1-score for the predicted anomalies based on the ground truth available data.
+The f1-score with the highest value of $$\epsilon$$ will be our threshold. This means that the probability that lie below the selected threshold will be considered anomalous.
+
+```python
+def select_threshold(probs, test_data):
+    best_epsilon = 0
+    best_f1 = 0
+    f = 0
+    stepsize = (max(probs) - min(probs)) / 1000;
+    epsilons = np.arange(min(probs), max(probs), stepsize)
+    for epsilon in np.nditer(epsilons):
+        predictions = (probs < epsilon)
+        f = f1_score(test_data, predictions, average='binary')
+        if f > best_f1:
+            best_f1 = f
+            best_epsilon = epsilon
+
+    return best_f1, best_epsilon
+
+mu, sigma = estimate_gaussian(train_data)
+p = multivariate_gaussian(train_data,mu,sigma)
+
+#selecting optimal value of epsilon using cross validation
+p_cv = multivariate_gaussian(crossval_data,mu,sigma)
+fscore, ep = select_threshold(p_cv,test_data)
+print(fscore, ep)
+
+#selecting outlier datapoints
+outliers = np.asarray(np.where(p < ep))
+``` 
 <figure>
     <a href="/assets/images/outlier.png"><img src="/assets/images/outlier.png"></a>
 </figure>
 
+Looks pretty cool right? The points in red are the ones that were flagged as the outliers which were not far from what we observed in the first graph when exploring the datapoints. This really makes sense. 
  
 
 
