@@ -46,6 +46,6 @@ $$x_5$$ = network traffic
 
 Let us assume we suspect that one of our computers gets stuck in some infinite loop so that the CPU loads grows but the network traffic does not. In this case, to detect such kind of anomaly, we may have to create a new feature $$x_5$$ such that;
 
-$$x_5 = {\frac{CPU load}{network traffic}}$$
+$$x_5 = {\frac{CPU\space load}{network\space traffic}}$$
 
 
