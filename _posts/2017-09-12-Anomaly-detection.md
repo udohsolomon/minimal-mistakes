@@ -18,6 +18,8 @@ The basic approach of anomaly detection is defining a boundry around the normal 
 
 In this post, we will implement anomaly detection algorithm to detect outliers in computer servers in a data centre for monitoring purpose. The Gaussian distribution model is used for this example. First, we will describe the univariate gaussian distribution model, after that we will detailed the multivariate gaussian distribution and lastly, carry out the implementation in Python.
 ## Univariate Gaussian Distribution Model
+Here we present some basic facts regarding the Gaussian normal distribution model. It is commonly expressed in terms of the parameters $$x_i$$, $$\mu$$ and $$\sigma$$, where $$x_i$$ is the feature matrix, $$\mu$$ is the mean and $$\sigma$$ is the covariance matrix. 
+
 1. Choose features $$x_i$$ that might be indicative of anomalous examples
 2. Fit parameters $$\mu_{1},...,{\mu}_n, {\sigma_1^{2}},...,{\sigma_n^{2}}$$
 
