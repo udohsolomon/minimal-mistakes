@@ -255,8 +255,6 @@ defaults:
       path: ""
       type: posts
     values:
-    header:
-      image: /assets/images/header.jpg
       layout: single
       author_profile: true
       read_time: true
