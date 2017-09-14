@@ -36,16 +36,16 @@ Here we present some basic facts regarding the Gaussian normal distribution mode
 For our case study, monitoring computer servers in a data centre let us go through the process of choosing our feature $$x_i$$. Normally we may want to choose features that might on unsually large oe small values in the event of an anomaly. 
 Fro example, some of the features we may want to choose would be;
 
-	$$x_1$$ = memory use of computer
+$$x_1$$ = memory use of computer
 
-	$$x_2$$ = number of disk accesses/sec
+$$x_2$$ = number of disk accesses/sec
 
-	$$x_3$$ = CPU load
+$$x_3$$ = CPU load
 
-	$$x_5$$ = network traffic
+$$x_5$$ = network traffic
 
 Let us assume we suspect that one of our computers gets stuck in some infinite loop so that the CPU loads grows but the network traffic does not. In this case, to detect such kind of anomaly, we may have to create a new feature $$x_5$$ such that;
 
-	$$x_5 = {\frac{CPU load}{network traffic}}$$
+$$x_5 = {\frac{CPU load}{network traffic}}$$
 
 
