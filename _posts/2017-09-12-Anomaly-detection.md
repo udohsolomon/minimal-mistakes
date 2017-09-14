@@ -83,14 +83,14 @@ The task here is to use the multivariate Gaussian model to detect an if an unlab
 ## Data exploration
 Before we start, we need to explore our dataset, plotting our features will help us have good visual representation and give us better insight of what is going on. To accomplish this, we must first import all the important libraries using Python.
 
-```ruby
-	import matplotlib.pyplot as plt
-	import numpy as np
-	%matplotlib inline
+```python
+import matplotlib.pyplot as plt
+import numpy as np
+%matplotlib inline
 	
-	from numpy import genfromtxt
-	from scipy-stats import 
-	from sklearn.metrics import f1_score
+from numpy import genfromtxt
+from scipy-stats import multivariate_normal
+from sklearn.metrics import f1_score
 ```
 
 
