@@ -18,7 +18,7 @@ The basic approach of anomaly detection is defining a boundry around the normal 
 
 In this post, we will implement anomaly detection algorithm to detect outliers in computer servers in a data centre for monitoring purpose. The Gaussian distribution model is used for this example. First, we will describe the univariate gaussian distribution model, after that we will detailed the multivariate gaussian distribution and lastly, carry out the implementation in Python.
 ## Univariate Gaussian Distribution Model
-Here we present some basic facts regarding the Gaussian normal distribution model. It is commonly expressed in terms of the parameters $$x_i$$, $$\mu$$ and $$\sigma$$, where $$x_i$$ is the feature matrix, $$\mu$$ is the mean and $$\sigma$$ is the covariance matrix. 
+Here we present some basic facts regarding the Gaussian normal distribution model. It is commonly expressed in terms of the parameters $$x$$, $$\mu$$ and $$\sigma$$, where $$x$$ is the feature matrix, $$\mu$$ is the mean and $$\sigma$$ is the covariance matrix. 
 
 1. Choose features $$x_i$$ that might be indicative of anomalous examples
 2. Fit parameters $$\mu_{1},...,{\mu}_n, {\sigma_1^{2}},...,{\sigma_n^{2}}$$
@@ -35,12 +35,17 @@ Here we present some basic facts regarding the Gaussian normal distribution mode
 
 For our case study, monitoring computer servers in a data centre let us go through the process of choosing our feature $$x_i$$. Normally we may want to choose features that might on unsually large oe small values in the event of an anomaly. 
 Fro example, some of the features we may want to choose would be;
+
 	$$x_1$$ = memory use of computer
+
 	$$x_2$$ = number of disk accesses/sec
+
 	$$x_3$$ = CPU load
+
 	$$x_5$$ = network traffic
+
 Let us assume we suspect that one of our computers gets stuck in some infinite loop so that the CPU loads grows but the network traffic does not. In this case, to detect such kind of anomaly, we may have to create a new feature $$x_5$$ such that;
 
-	$$x_5 = \frac{CPU load}{network traffic}$$
+	$$x_5 = {\frac{CPU load}{network traffic}}$$
 
 
