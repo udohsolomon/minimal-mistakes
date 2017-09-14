@@ -92,6 +92,10 @@ from numpy import genfromtxt
 from scipy-stats import multivariate_normal
 from sklearn.metrics import f1_score
 ```
+<figure>
+    <a href="/assets/images/trainfeature.png"><img src="/assets/images/trainfeature.png"></a>
+    <figcaption>Datapoints of Throughput vs Latency.</figcaption>
+</figure>
 
 
  
