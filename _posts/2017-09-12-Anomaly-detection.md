@@ -46,6 +46,19 @@ $$x_5$$ = network traffic
 
 Let us assume we suspect that one of our computers gets stuck in some infinite loop so that the CPU loads grows but the network traffic does not. In this case, to detect such kind of anomaly, we may have to create a new feature $$x_5$$ such that;
 
-$$x_5 = {\frac{CPU\space load}{network\space traffic}}$$
+$$x_5 = {\frac{CPU\enspace load}{network\enspace traffic}}$$
+
+This approach of choosing our features really helps in detecting anomaly that would not have poosibly been flagged by our algorithm. However, where our algorithm fails to detect an anomaly and we don't have the luxury of creating new features, how do we go about fixing this?
+
+One possible way of fixing this sort of strange behaviour is to develop a modified version of the Gaussian normal distribution known as the multivariate Gaussian distribution.
+##Multivariate Gaussian distribution model
+The multivariate Gaussian distribution is expressed in terms of parameters $$\mu$$ and $$\sum$$, where $$\mu$$ is an $$n \times 1$$ vector and $$\sum$$ is an $$n \times n$$, covariance matrix. 
+
+Instead of modelling our $$p(x)$$ separately like we did in Gaussian normal distribution, we are going to model our $$p(x)$$ all in one goal.
+
+Given parameters: $$\mu \in \R^n$$ and $$\Sigma \in \R^{n \times n}$$ (covariance matrix)
+
+ $$p(x; \space \mu, \space \Sigma) = {\frac{1}{(2\pi)^{\frac{n}{2}|\Sigma|^{frac{1}{2}}$$
+
 
 
