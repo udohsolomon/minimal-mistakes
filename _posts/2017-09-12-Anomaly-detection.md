@@ -79,6 +79,19 @@ It is possible to show mathematically that the original Gaussian distribution is
 
 While this approach automatically captures correlations between features, it is computationally more expensive to implement. The Gaussian normal distribution is cheaper and scale better.
 ## Python implementation of anomaly detection algorithm
+The task here is to use the multivariate Gaussian model to detect an if an unlabelled example from our dataset should be flagged an anomaly. To keep things simple, we will only deal with a simple 2-dimensional dataset. The dataset only contains two features; the throughput $$(mb/s)$$ and latency $$(ms)$$ response of each server. First let us visualise our dataset and explore what exactly is going on.
+## Data exploration
+Before we start, we need to explore our dataset, plotting our features will help us have good visual representation and give us better insight of what is going on. To accomplish this, we must first import all the important libraries using Python.
+
+```ruby
+	import matplotlib.pyplot as plt
+	import numpy as np
+	%matplotlib inline
+	
+	from numpy import genfromtxt
+	from scipy-stats import 
+	from sklearn.metrics import f1_score
+```
 
 
  
