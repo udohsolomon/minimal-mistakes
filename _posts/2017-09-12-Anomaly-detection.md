@@ -48,11 +48,11 @@ Let us assume we suspect that one of our computers gets stuck in some infinite l
 
 $$x_5 = {\frac{CPU\enspace load}{network\enspace traffic}}$$
 
-This approach of choosing our features really helps in detecting anomaly that would not have possibly been flagged by our algorithm. However, where our algorithm fails to detect an anomaly and we don't have the luxury of creating new features, how do we go about fixing this?
+This approach of manually creating our features really helps in detecting anomaly or unusaul combinations of values that would not have possibly been flagged by our algorithm. However, where our algorithm fails to detect an anomaly and we don't have the luxury of creating new features, how do we go about fixing this?
 
 One possible way of fixing this sort of strange behaviour is to develop a modified version of the Gaussian normal distribution known as the multivariate Gaussian distribution.
 ## Multivariate Gaussian distribution model
-The multivariate Gaussian distribution is expressed in terms of parameters $$\mu$$ and $$\Sigma$$, where $$\mu$$ is an $$n \times 1$$ vector and $$\Sigma$$ is an $$n \times n$$, covariance matrix. 
+The multivariate Gaussian distribution is expressed in terms of parameters $$\mu$$ and $$\Sigma$$, where $$\mu$$ is an $$n \times 1$$ vector and $$\Sigma$$ is an $$n \times n$$, covariance matrix. The multivariate Gaussian model automatically captures the correlations between features so that we don't have to manually create them.
 
 Instead of modelling our $$p(x)$$ separately like we did in Gaussian normal distribution, we are going to model our $$p(x)$$ all in one goal.
 
@@ -75,5 +75,12 @@ $$\Sigma = \frac{1}{m}\sum_{i=1}^{m}{(x^{(i)} - \mu)}{(x^{(i)} - \mu)}^{T}$$
 
 4. Flag an anomaly if $$p(x) < \epsilon$$
 
+It is possible to show mathematically that the original Gaussian distribution is thesame as the multivariate Gaussian but with a constrain. The constrain is that the covariance matrix $$\Sigma$$ must have all zeros on the off diagonal elements of the matrix.
+
+While this approach automatically captures correlations between features, it is computationally more expensive to implement. The Gaussian normal distribution is cheaper and scale better.
+## Python implementation of anomaly detection algorithm
+
+
+ 
 
 
