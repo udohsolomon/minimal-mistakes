@@ -63,11 +63,11 @@ Given parameters: $$\mu \in {\Re}^n$$ and $$\Sigma \in {\Re}^{n \times n}$$ (cov
 To detect anomaly with the multivariate Gaussian distribution, we go through the following;
 
 1. Given training set $$\{x^{(1)}, x^{(2)}, x^{(3)}, . . . , x^{(m)}\}$$
-2. Fit model $$p(x) by setting 
+2. Fit model $$p(x)$$ by setting 
 
 $$\mu = \frac{1}{m}\sum_{i=1}^{m} x^{i}$$ 
 
-$$\Sigma = \frac{1}{m}\sum_{i=1}^{m}{(x^{i} - \mu_j)}{(x^{i} - \mu_j)}^{T}$$ 
+$$\Sigma = \frac{1}{m}\sum_{i=1}^{m}{(x^{(i)} - \mu)}{(x^{(i)} - \mu)}^{T}$$ 
 
 3. Given a new example $$x$$, compute
 
