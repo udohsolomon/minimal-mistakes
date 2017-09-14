@@ -22,7 +22,11 @@ In this post, we will implement anomaly detection algorithm to detect outliers i
 2. Fit parameters $$\mu_{1},...,{\mu}_n, {\sigma_1^{2}},...,{\sigma_n^{2}}$$
 
 	$$\mu_j = \frac{1}{m}\sum_{i=1}^{m} x_{i}^{j}$$ 
+
 	$$\sigma_j^{2} = \frac{1}{m}\sum_{i=1}^{m}{(x_j^{i} - \mu_j)}^{2}$$ 
+
 3. Given new example $$x$$, compute $$p(x)$$
-	$$p(x) = \Pi_{j=1}^{n}p(x_j;\mu_j,\sigma_j^{2}) = \Pi_{j=1}^{n}\frac{1}{\sqrt{2{\pi}}\sigma_j}exp(-\frac{x_j - \mu_j}^2{2{\sigma_j^{2}}}$$
+	$$p(x) = \Pi_{j=1}^{n}p(x_j;\mu_j,\sigma_j^{2}) = $$
+
+\Pi_{j=1}^{n}\frac{1}{\sqrt{2{\pi}}\sigma_j}exp(-\frac{x_j - \mu_j}^2{2{\sigma_j^{2}}}$$
 4. Anomaly if $$p(x) < {\epsilon}$$
