@@ -156,7 +156,7 @@ outliers = np.asarray(np.where(p < ep))
     <a href="/assets/images/outlier.png"><img src="/assets/images/outlier.png"></a>
 </figure>
 
-Looks pretty cool right? The points in red are the ones that were flagged as the outliers which were not far from what we observed in the first graph when exploring the datapoints. This really makes sense. We have been able to implement a simple anomaly detection algorithm using the Gaussian distribution model. This post was inspired from Andrew Ng Cousera [machine learning][machine-learning] cousrse. 
+Looks pretty cool right? The points in red are the ones that were flagged as the outliers which were not far from what we observed in the first graph when exploring the datapoints. This really makes sense. We have been able to implement a simple anomaly detection algorithm using the Gaussian distribution model. This post was inspired from Andrew Ng Coursera [machine learning][machine-learning] course. 
 
 You can get the complete source code I used in implementing this algorithm from my repository [here][anomaly-detection].
 
