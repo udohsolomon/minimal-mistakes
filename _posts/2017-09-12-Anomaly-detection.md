@@ -160,7 +160,6 @@ Looks pretty cool right? The points in red are the ones that were flagged as the
 
 You can get the complete source code I used in implementing this algorithm from my repository [here][anomaly-detection].
 
-References
 [machine-learning]: https://www.coursera.org/learn/machine-learning/home/week/9
 [anomaly-detection]: https://github.com/udohsolomon/anomaly-detection/blob/master/anomaly_detection.py
 
