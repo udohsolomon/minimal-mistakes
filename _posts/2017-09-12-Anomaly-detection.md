@@ -121,9 +121,9 @@ def multivariate_gaussian(dataset, mu, sigma):
     p = multivariate_normal(mean=mu, cov=sigma)
     return p.pdf(dataset)
 ```
-
-Next is for us to define a function $$\epsilon$$ that will help us get the optimal value for the threshold which will be use to separate the normal and the anomalous datapoints. We are going to make use of the cross validation dataset to learn the optimal values of $$\epsilon$$. To achieve this, we are going to try different values in a range of learned probabilities. We will the calculate the f1-score for the predicted anomalies based on the ground truth available data.
-The f1-score with the highest value of $$\epsilon$$ will be our threshold. This means that the probability that lie below the selected threshold will be considered anomalous.
+## Implementing the anomaly detection algorithm using the Gaussian model
+Next is for us to define a function $$\epsilon$$ that will help us get the optimal value for the threshold which will be use to separate the normal and the anomalous datapoints. We are going to make use of the cross validation dataset to learn the optimal values of $$\epsilon$$. To achieve this, we are going to try different values in a range of learned probabilities. We will then calculate the f1-score for the predicted anomalies based on the ground truth available data.
+The $$\epsilon$$ with the highest value of f1-score will be our threshold. This means that the probability that lie below the selected threshold will be considered anomalous.
 
 ```python
 def select_threshold(probs, test_data):
@@ -156,7 +156,14 @@ outliers = np.asarray(np.where(p < ep))
     <a href="/assets/images/outlier.png"><img src="/assets/images/outlier.png"></a>
 </figure>
 
-Looks pretty cool right? The points in red are the ones that were flagged as the outliers which were not far from what we observed in the first graph when exploring the datapoints. This really makes sense. 
+Looks pretty cool right? The points in red are the ones that were flagged as the outliers which were not far from what we observed in the first graph when exploring the datapoints. This really makes sense. We have been able to implement a simple anomaly detection algorithm using the Gaussian distribution model. This post was inspired from Andrew Ng Cousera [machine learning][machine-learning] cousrse. 
+
+You can get the complete source code I used in implementing this algorithm from my repository [here][anomaly-detection].
+
+References
+[machine-learning]: https://www.coursera.org/learn/machine-learning/home/week/9
+[anomaly-detection]: https://github.com/udohsolomon/anomaly-detection/blob/master/anomaly_detection.py
+
  
 
 
