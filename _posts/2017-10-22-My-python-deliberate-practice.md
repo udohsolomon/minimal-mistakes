@@ -11,8 +11,6 @@ tags:
 mathjax: true
 ---
 
-# Python Deliberate Practice
-
 First of all, don't be afraid, read [Plateau of Productivity]. More importantly, be patient, a good read from Peter Norvig, titled [Teach Yourself Programming in 10 years].
 
 ## Motivation
@@ -24,7 +22,7 @@ By now, I have a pretty good working knowledge of Matlab. There are obviously ma
 * It's a general purpose programming language, so presumably it is a lot easier to learn good software engineering principles. (What are they though?)
 * Many of the [data stacks] are built using the tools in the Python ecosystem (ETL using Airflow, Front-end using Flask with RESTful API supports, Machine Learning using scikit-learn) - being able to use the same language for different parts of the data stack will bring prototypes closer to production.
 
-To me, the appeal of Python is not only necessarily the Data Analysis part, the appeal of using Python for data work is that you have a higher chance to see how data plays a role within the whole integrated technology stack. Knowing Python is likely to make me a better **end-to-end** Data Scientist and better machine learning Engineer.
+To me, the appeal of Python is not only necessarily the Data Analysis part, the appeal of using Python for data work is that you have a higher chance to see how data plays a role within the whole integrated technology stack. Knowing Python is likely to make me a better **end-to-end** Data Scientist and a better machine learning Engineer.
 
 Here is a great [reddit answer] that explains the intersection and disjoint union of the two languages beautifully.
 
@@ -50,12 +48,12 @@ I am a huge believer in learning by doing, and there are a lot of opportunities 
 
 * **[Immediate]** Learn to write pythonic code
 * **[Shorter term, easiest to practice]** Write re-usable, modular, tested code for my data work and knowledge posts
-* **[Medium term, harder to practice]** Achieve efficiency and feature parity on Data Analysis using Python compared to R
+* **[Medium term, harder to practice]** Achieve efficiency and feature parity on Data Analysis using Python.
 * **[Longer term, hardest to practice]** Write tools. Being able to work on projects that span the entire data stack using Python, apply good software engineering principles to these projects
 
 ## Project Goals
 
-* **Outcome**: I want to move my data stack to Python completely. This means my day-to-day data analysis work will be done in Python instead of R, make my code as pythonic as possible. Become a Contributor to Airpy / tools, and take on one bigger Python project (ML, Data Viz ...etc).
+* **Outcome**: I want to move my data stack to Python completely. This means my day-to-day data analysis work will be done in Python, make my code as pythonic as possible. Become a Contributor to an opensource project or tool, and take on one bigger Python project (ML, Data Viz ...etc).
 
 * **Curriculum**: I want do everything that I can to go through all the basic materials in Pandas/Matplotlib combo. Expose myself to functional programming, OOP, testing in Python, or even making command tools. Get feedbacks from experts.
 
