@@ -7,7 +7,7 @@
 
 # Site Settings
 locale                   : "en-GB"
-title                    : "Musings on Machine learning and AI"
+title                    : "My musings on Machine learning and AI"
 title_separator          : "|"
 name                     : "Solomon UDOH"
 description              : "An amazing website."
@@ -81,7 +81,7 @@ theme: minimal-mistakes-jekyll
 author:
   name             : "Solomon UDOH"
   avatar           : "/images/bio_photo.jpg" # path of avatar image, e.g. "/assets/images/bio-photo.jpg"
-  bio              : "Just another random guy trying to understand how things work"
+  bio              : "My deliberate attempt to be really really good in machine learning and data science"
   location         : "Aberdeen, UK"
   email            :
   uri              :
