@@ -119,7 +119,7 @@ I am a huge believer in learning by doing, and there are a lot of opportunities 
     * [Computational Biology: OOP For Scientist]
     * [Improve Your Python: Jeff Knupp: OOP]
     * [BIDS: Python Bootcamp: OOP]
-    * Simeon Franklin's Twitter University Class (not available to the public)
+
 
 * **Writing Functional Programming Python Code**
     
@@ -142,7 +142,7 @@ I am a huge believer in learning by doing, and there are a lot of opportunities 
     * [BIDS: Python Bootcamp: Test Driven Development]
     * [Software Carpentry: Testing]
 
-## Next Steps / Level In 2017
+## Next Steps / Level In 2018
 
 Once mastered all the above, the next natural step is to create public work that other people can use so you can democratize your useful tool to others. A great introduction to how to get started is from Tim Hopper's talk, titled [Sharing Your Side Projects].
 
