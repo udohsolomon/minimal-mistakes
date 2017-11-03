@@ -63,24 +63,14 @@ def explore_job(url):
     
     return skill_count
 ```
-
 Let us explore and evaluate a sample job post from indeed [Data Scientist role in the UK]: https://www.indeed.co.uk/jobs?q=data+scientist&l=United+Kingdom
-
 
 ```python
 explore_job('https://www.indeed.co.uk/jobs?q=data+scientist&l=United+Kingdom')
 ```
 
     ML count: 7, Python count: 0, DS count: 5, Research count: 4
-
-
-
-
-
     16
-
-
-
 BOOM! We got some keywords that match our skillset. This shows that our explore function is working perfectly. 
 
 Now that we have got our explore function working, we will also like to extract other relevant information from a job posting like the title, company name, and the date posted. 
@@ -104,14 +94,10 @@ def extract_job_info(base_url):
     return attrs_list
 ```
 
-
 ```python
 extract_job_info('https://www.indeed.co.uk/jobs?q=machine+learning&l=United+Kingdom&sort=date')
 
 ```
-
-
-
 
     [{'class': ['turnstileLink'],
       'company': 'Amazon',
@@ -225,7 +211,6 @@ Apart from looking at job titles alone, I might also be interested in looking fo
 dream_companies = ['amazon', 'apple', 'microsoft', 'google', 'facebook']
 ```
 
-
 ```python
 #This function loops through the indeed side and looks for the recently posted ML jobs
 def get_new_ml_jobs(days_ago_limit = 1, starting_page = 0, pages_limit = 10, old_jobs_limit = 5,
@@ -281,7 +266,6 @@ def get_new_ml_jobs(days_ago_limit = 1, starting_page = 0, pages_limit = 10, old
     return new_jobs_string
 ```
 
-
 ```python
 def get_new_ds_jobs(days_ago_limit = 1, starting_page = 0, pages_limit = 10, old_jobs_limit = 5,
                   location = 'United Kingdom', query = 'data scientist'):
@@ -335,7 +319,6 @@ def get_new_ds_jobs(days_ago_limit = 1, starting_page = 0, pages_limit = 10, old
     return new_jobs_string
 ```
 
-
 ```python
 #links = get_new_ds_jobs('https://www.indeed.co.uk/jobs?q=machine+learning&l=United+Kingdom&sort=date')[:-1]
 ```
@@ -386,7 +369,6 @@ def main():
                                         location = location, pages_limit = page_limit, days_ago_limit = 1, old_jobs_limit = 5)
     send_gmail(text = data_scientist_jobs, location = location)
 ```
-
 
 ```python
 if __name__ == "__main__":
@@ -551,7 +533,7 @@ if __name__ == "__main__":
 Here is the screenshot of the mail the scraping tool sent to me.
 
 <figure>
-    <a href="/assets/images/gmail.png"><img src="/assets/images/gmail.png"></a>
+    <a href="/assets/images/gmail.PNG"><img src="/assets/images/gmail.PNG"></a>
 </figure>
 
 # Conclusion
