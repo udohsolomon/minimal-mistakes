@@ -252,7 +252,7 @@ Once mastered all the above, the next natural step is to create public work that
 
 
 [Python Tutor Visualizer]:http://www.pythontutor.com/visualize.html#mode=edit
-[Python For Data Analysis]:http://www3.canisius.edu/~yany/python/Python4DataAnalysis.pdf
+[Python For Data Analysis]:https://www.kevinsheppard.com/images/0/09/Python_introduction.pdf
 [Stanford CS 41: Python]:http://stanfordpython.com/
 [Berkeley CS 88: Python Data Structure]:http://cs88-website.github.io/
 [Harvard CS 109: Data Science]:http://cs109.github.io/2015/

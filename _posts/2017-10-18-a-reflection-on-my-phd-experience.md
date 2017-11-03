@@ -17,5 +17,5 @@ As I reflect on my PhD experience, I could write a thousand word about how my in
 
 The valley of shit is a terrible place to be, it smells. No one walks with you down there, no matter how close they are to you. No matter how reassuring those encouraging words can be, somehow you still have the feeling that the valley has no end. Despite the many challenges, I never lose faith, I kept fighting, kept walking in that valley and kept pushing. By which I mean I kept writing, doing analyses, kept reading and reproducing bunch of papers and kept writing bunch of codes. Now I can gladly say it’s been an amazing experience. 
 
-The PhD experience affords me to not just answer a given question, but to also define the question. It has also helped me to solve independent problems and strive for excellence at all time. 
+The PhD experience has been an amazing one, it has shaped me, and affords me to not just answer a given question, but to also define the question. It has also helped me to solve independent problems and strive for excellence at all time. 
 
