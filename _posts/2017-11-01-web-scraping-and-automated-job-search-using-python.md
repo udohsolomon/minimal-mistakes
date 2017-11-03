@@ -63,7 +63,7 @@ def explore_job(url):
     
     return skill_count
 ```
-Let us explore and evaluate a sample job post from indeed [Data Scientist role in the UK]: https://www.indeed.co.uk/jobs?q=data+scientist&l=United+Kingdom
+Let us explore and evaluate a sample job post from indeed [Data Scientist role in the UK](https://www.indeed.co.uk/jobs?q=data+scientist&l=United+Kingdom)
 
 ```python
 explore_job('https://www.indeed.co.uk/jobs?q=data+scientist&l=United+Kingdom')
@@ -71,6 +71,7 @@ explore_job('https://www.indeed.co.uk/jobs?q=data+scientist&l=United+Kingdom')
 
     ML count: 7, Python count: 0, DS count: 5, Research count: 4
     16
+
 BOOM! We got some keywords that match our skillset. This shows that our explore function is working perfectly. 
 
 Now that we have got our explore function working, we will also like to extract other relevant information from a job posting like the title, company name, and the date posted. 
