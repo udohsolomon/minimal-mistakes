@@ -547,7 +547,9 @@ if __name__ == "__main__":
     
     
     Email sent.
+
 Here is the screenshot of the mail the scraping tool sent to me.
+
 <figure>
     <a href="/assets/images/gmail.png"><img src="/assets/images/gmail.png"></a>
 </figure>
