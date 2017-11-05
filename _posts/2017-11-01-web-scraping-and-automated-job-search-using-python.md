@@ -1,7 +1,7 @@
 ---
 title:  "Web Scraping and Automated Job Search in Python"
 header:
-  teaser: "https://farm5.staticflickr.com/4076/4940499208_b79b77fb0a_z.jpg"
+  image: "assets/images/unsplash-image-7.jpg"
 categories: 
   - Learning
 tags:
