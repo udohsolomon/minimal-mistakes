@@ -218,6 +218,8 @@ A Gaussian process is fully specified by its mean and covariance function. Once 
 
 The mean and covariance functions will be the focus of my next post.
 
+The Python codes used in producing these plots are found in my [Github](https://github.com/udohsolomon/GPIntroduction) 
+
 
 I will like to hear your thoughts on this and also appreciate any feedback.
 
