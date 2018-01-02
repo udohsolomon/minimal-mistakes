@@ -98,7 +98,7 @@ $$p(x_2) = \mathcal{N}(x_2 | \mu_2, \Sigma_2)$$
 
 Also, conditional distributions of a subset of a multivariate normal distribution (conditional on the remaining elements) are normal too:
 
-$$p(x_1|x_2) = \mathcal{N}({x_1 \ mu_{1|2}}, \Sigma_{1|2})$$
+$$p(x_1|x_2) = \mathcal{N}(x_1  \ \mu_{1|2}, \Sigma_{1|2})$$
 
 where
 
