@@ -201,57 +201,10 @@ So as the density of points becomes high, the result will be one realization (fu
 
 This example, of course, is trivial because it is simply a random function drawn from the prior. What we are really interested in is *learning* about an underlying function from information residing in our data. In a parametric setting, we either specify a likelihood, which we then maximize with respect to the parameters, of a full probability model, for which we calculate the posterior in a Bayesian context. Though the integrals associated with posterior distributions are typically intractable for parametric models, they do not pose a problem with Gaussian processes.
 
-
-```python
-x = np.linspace(-3, 3, 10)
-σ_n = exponential_cov(x, x, θ)
-```
-
-
-```python
-m, s = conditional(x, [], [], θ)
-y = np.random.multivariate_normal(m, s)
-```
-
-
-```python
-plt.figure(figsize =(10, 7))
-plt.plot(x, y, "ro")
-predictions = [predict(i, x, exponential_cov, θ, σ_n, y) for i in x_pred]
-y_pred, sigmas = np.transpose(predictions)
-plt.errorbar(x_pred, y_pred, yerr=sigmas, capsize=0, color = 'c')
-plt.ylim(-3, 3);
-```
-
-
 ![png](/assets/images/gpintro/output_42_0.png){: .align-center}
 
 
 Here is a sample of 10 realizations, predicted over a denser set of x-values:
-
-
-```python
-plt.figure(figsize =(15, 8))
-x = np.linspace(-3, 3) 
-σ_n = exponential_cov(x, x, θ)
-m, s = conditional(x, [], [], θ)
-
-for i in range(10):
-    y = np.random.multivariate_normal(m, s)
-    predictions = [predict(i, x, exponential_cov, θ, σ_n, y) for i in x_pred]
-    y_pred, sigmas = np.transpose(predictions)
-    plt.plot(x_pred, y_pred, alpha=0.8)
-    plt.ylim(-3, 3)
-
-plt.xlabel('X'); plt.ylabel('y')
-```
-
-
-
-
-    Text(0,0.5,'y')
-
-
 
 
 ![png](/assets/images/gpintro/output_44_1.png){: .align-center}
