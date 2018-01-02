@@ -140,7 +140,7 @@ Let's consider a value of -1 sampled from $$x_1$$. According to our model, there
 ![png](/assets/images/gpintro/output_13_0.png){: .align-center}
 
 
-We can apply the normal distribution of $x_2|x_1$ from above to see how $x_2$ is constrained:
+We can apply the normal distribution of $$x_2|x_1$$ from above to see how $$x_2$$ is constrained:
 
 $$p(x_2|x_1) = \mathcal{N}(\mu_{x_1} + \Sigma_{x_1 x_2}\Sigma_{x_2}^{-1}(x_2-\mu_{x_2}), 
 \Sigma_{x_1}-\Sigma_{x_1 x_2}\Sigma_{x_2}^{-1}\Sigma_{x_1 x_2}^T)$$
