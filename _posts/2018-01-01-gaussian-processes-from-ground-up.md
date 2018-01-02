@@ -11,7 +11,7 @@ mathjax: true
 ---
 
 
-As a researcher, I have the habit of learning new and interesting things. Most times these things turn out to become very useful one way or the other. Recently, I found myself in this rabbit hole of **Gaussian processes** 
+As a researcher, I have the habit of learning new and interesting things. Most times these things turn out to become very useful one way or the other. Recently, I found myself in this rabbit hole of **Gaussian processes**.
 
 A common applied statistics task involves building regression models to characterize non-linear relationships between variables. It is possible to fit such models by assuming a particular non-linear functional form, such as a sinusoidal, exponential, or polynomial function, to describe one variable's response to the variation in another. Unless this relationship is obvious from the outset, however, it involves possibly extensive model selection procedures to ensure the most appropriate model is retained. 
 
@@ -57,7 +57,7 @@ $$ Pr(\theta|y) = \frac{Pr(y|\theta)Pr(\theta)}{\int Pr(y|\theta)Pr(\theta) d\th
 
 The intractability of this integral is one of the factors that has contributed to the under-utilization of Bayesian methods by statisticians.
 
-Since we are usually unable to calculate the denominator, numerical approximations are typically applied to estimate the posterior distribution. We will get to the maths of Gaussian processes later in this post, but for now let us get the intuition beyond Gaussian processes.
+Since we are usually unable to calculate the denominator, numerical approximations are typically applied to estimate the posterior distribution. We will get to the maths of Gaussian processes later in this post, but for now let us get the intuition behind Gaussian processes.
 
 Let us say we intend to carry out the measurement of temperature over time using a temperature sensor. The measurements will look similar to what we have in the graph below.
 
@@ -76,7 +76,7 @@ The major idea behind Gaussian processes is that a function can be modeled using
 
 Given $$ x = (x_1, x_2) $$ is jointly Gaussian with parameters 
 
-$$ {\mu = \begin{pmatrix}{\mu_1}  \\ {\mu_2} \end{pmatrix}}, \space \space  \Sigma = \left({ \begin{array}{c} {\Sigma_{11}} & {\Sigma_{12}}  \\ {\Sigma_{22}} & {\Sigma_{22}}  \\ \end{array} }\right)$$
+$$ {\mu = \begin{pmatrix}{\mu_1}  \\ {\mu_2} \end{pmatrix}}, \space \space  \Sigma = \left({ \begin{array}{c} {\Sigma_{11}} & {\Sigma_{12}}  \\ {\Sigma_{21}} & {\Sigma_{22}}  \\ \end{array} }\right)$$
 
 First, the marginal distribution of any subset of elements from  a multivariate normal distribution is also normal:
 
@@ -98,7 +98,7 @@ $$p(x_2) = \mathcal{N}(x_2 | \mu_2, \Sigma_2)$$
 
 Also, conditional distributions of a subset of a multivariate normal distribution (conditional on the remaining elements) are normal too:
 
-$$p(x_1|x_2) = \mathcal{N}(x_1 \mu_{1|2}, \Sigma_{1|2})$$
+$$p(x_1|x_2) = \mathcal{N}({x_1 \ mu_{1|2}}, \Sigma_{1|2})$$
 
 where
 
