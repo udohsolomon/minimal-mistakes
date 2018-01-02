@@ -11,8 +11,6 @@ mathjax: true
 ---
 
 
-## Motivation
-
 As a researcher, I have the habit of learning new and interesting things. Most times these things turn out to become very useful one way or the other. Recently, I found myself in this rabbit hole of **Gaussian processes** 
 
 A common applied statistics task involves building regression models to characterize non-linear relationships between variables. It is possible to fit such models by assuming a particular non-linear functional form, such as a sinusoidal, exponential, or polynomial function, to describe one variable's response to the variation in another. Unless this relationship is obvious from the outset, however, it involves possibly extensive model selection procedures to ensure the most appropriate model is retained. 
@@ -38,26 +36,24 @@ A Bayesian model is described by parameters, uncertainty in those parameters is 
 
 All conclusions from Bayesian statistical procedures are stated in terms of *probability statements*
 
-![image-center](/assets/images/prob_model.png){: .align-center}
+![image-center](/assets/images/gpintro/prob_model.png){: .align-center}
 
 
 As a toy example, a child has a prior belief of how a sheep will look like. Later after taking a trip to a countryside with the parents, the parents point at a sheep to the child and say look there is a sheep over there. The child sees the sheep and gets a label. At this point, the child will update his prior belief based on the actual picture of the sheep. The child then combines the initial belief with the actual picture to get a new belief of what a sheep looks like. 
 
 In Bayesian inference, the initial belief of the child of what a sheep may look like is called the **prior**. The updated belief after seeing the actual picture is called the **likelihood** The child then combines the **prior** and the **likelihood** using **Bayes'** rule to obtain the **posterior**.
 
-![bayesian_inference](/assets/images/GP1.png){: .align-center}
+![bayesian_inference](/assets/images/gpintro/GP1.png){: .align-center}
 
 Posterior distribution which is also a Gaussian gives us more confident about our belief and it's calculated using **Bayes' Formula** as shown. 
 
-![bayes formula](/assets/images/bayes_formula.png){: .align-center}
+![bayes formula](/assets/images/gpintro/bayes_formula.png){: .align-center}
 
 The equation expresses how our belief about the value of \\(\theta\\), as expressed by the **prior distribution** \\(P(\theta)\\) is reallocated following the observation of the data \\(y\\), as expressed by the posterior distribution.
 
 The denominator \\(P(y)\\) cannot be calculated directly, and is actually the expression in the numerator, integrated over all \\(\theta\\):
 
-<div style="font-size: 150%;">  
-$$\\[Pr(\theta|y) = \frac{Pr(y|\theta)Pr(\theta)}{\int Pr(y|\theta)Pr(\theta) d\theta}\\]$$
-</div>
+\\[Pr(\theta|y) = \frac{Pr(y|\theta)Pr(\theta)}{\int Pr(y|\theta)Pr(\theta) d\theta}\\]
 
 The intractability of this integral is one of the factors that has contributed to the under-utilization of Bayesian methods by statisticians.
 
@@ -65,12 +61,12 @@ Since we are usually unable to calculate the denominator, numerical approximatio
 
 Let us say we intend to carry out the measurement of temperature over time using a temperature sensor. The measurements will look similar to what we have in the graph below.
 
-![bayesian_inference](images/temp.png)
+![bayesian_inference](/assets/images/gpintro/temp.png){: .align-center}
 
 The natural thing we may want to do next is to know what the temperature would be be at a particular time in the future.
 Normally, when we want to measure the temperature, we fit in different dimensions of Gaussian processes. But rather than going through those individual Gaussian processes, we represent them as a function.
 
-![bayesian_inference](images/funct.png)
+![bayesian_inference](/assets/images/gpintro/funct.png){: .align-center}
 
 The way we are now going to represent the **prior distribution** is the mean which is the dash blue line at the centre of the of the function. The envelopes around it are two standard deviations which give us some degree of confidence in our measurements. 
 
@@ -78,7 +74,7 @@ The way we are now going to represent the **prior distribution** is the mean whi
 
 The major idea behind Gaussian processes is that a function can be modeled using an infinite dimensional multivariate Gaussian distribution. In other words, every point in the input space is associated with a random variable and the joint distribution of these is modeled as a multivariate Gaussian.
 
-Given $ x = (x_1, x_2) $ is jointly Gaussian with parameters 
+Given $ x = ({x_1}, {x_2}) $ is jointly Gaussian with parameters 
 
 $$ {\mu = \begin{pmatrix}{\mu_1}  \\ {\mu_2} \end{pmatrix}}, \space \space  \Sigma = \left({ \begin{array}{c} {\Sigma_{11}} & {\Sigma_{12}}  \\ {\Sigma_{22}} & {\Sigma_{22}}  \\ \end{array} }\right)$$
 
@@ -161,7 +157,7 @@ plt.tight_layout();
 ```
 
 
-![png](/assets/images/output_5_0.png)
+![png](/assets/images/gpintro/output_5_0.png){: .align-center}
 
 
 It may seem odd to simply adopt the zero function to represent the mean function of the Gaussian process -- surely we can do better than that! It turns out that most of the learning in the GP involves the covariance function and its parameters, so very little is gained in specifying a complicated mean function.
@@ -227,7 +223,7 @@ plt.xlim(-3, 3); plt.ylim(-3, 3);
 ```
 
 
-![png](/assets/images/gpintro/output_13_0.png)
+![png](/assets/images/gpintro/output_13_0.png){: .align-center}
 
 
 We can apply the normal distribution of $x_2|x_1$ from above to see how $x_2$ is constrained:
@@ -247,7 +243,7 @@ plt.xlim(-3, 3); plt.ylim(-3, 3);
 ```
 
 
-![png](/assets/images/gpintro/output_15_0.png)
+![png](/assets/images/gpintro/output_15_0.png){: .align-center}
 
 
 Notice that if we change the covariance function (either the form or the parameterization), we will change the dependence among points separated by a given distance. We will look at alternate forms of the covariance function a little later on.
@@ -289,7 +285,7 @@ plt.ylim(-3, 3);
 ```
 
 
-![png](/assets/images/gpintro/output_21_0.png)
+![png](/assets/images/gpintro/output_21_0.png){: .align-center}
 
 
 Let's select an arbitrary starting point to sample, say $x=1$. Since there are no prevous points, we can sample from an unconditional Gaussian:
@@ -351,7 +347,7 @@ plt.legend(['data'])
 
 
 
-![png](/assets/images/gpintro/output_28_1.png)
+![png](/assets/images/gpintro/output_28_1.png){: .align-center}
 
 
 From here we can see that the sample point which is the **prior** was refined to a **posterior distribution** just like in the case with the child. It shows that the function is no longer flat but rather close to the datapoint/sample point. We can also see that around the datapoint we sampled, we now have an increased confidence. 
@@ -397,7 +393,7 @@ plt.xlim(-3, 3); plt.ylim(-3, 3);
 ```
 
 
-![png](/assets/images/gpintro/output_34_0.png)
+![png](/assets/images/gpintro/output_34_0.png){: .align-center}
 
 
 Of course, sampling sequentially is just a heuristic to demonstrate how the covariance structure works. We can just as easily sample several points at once:
@@ -435,7 +431,7 @@ plt.ylim(-3, 3);
 ```
 
 
-![png](/assets/images/gpintro/output_37_0.png)
+![png](/assets/images/gpintro/output_37_0.png){: .align-center}
 
 
 So as the density of points becomes high, the result will be one realization (function) from the prior GP. 
@@ -465,7 +461,7 @@ plt.ylim(-3, 3);
 ```
 
 
-![png](/assets/images/gpintro/output_42_0.png)
+![png](/assets/images/gpintro/output_42_0.png){: .align-center}
 
 
 Here is a sample of 10 realizations, predicted over a denser set of x-values:
@@ -495,7 +491,7 @@ plt.xlabel('X'); plt.ylabel('y')
 
 
 
-![png](/assets/images/gpintro/output_44_1.png)
+![png](/assets/images/gpintro/output_44_1.png){: .align-center}
 
 
 While Univariate Gaussians are distributions over real valued variables, multivariate Gaussians are pairs or finite numbers of distributions over real valued variables, Gaussina processes are functions (infinite number of distibutions over real valued variables. This in general drives us to a notion called **regression**. 
@@ -507,5 +503,5 @@ Regressions are quite good for denoising and smoothing. They do not follow every
 ## References
 
 - [Rasmussen, C. E., & Williams, C. K. I. (2005). Gaussian Processes for Machine Learning (Adaptive Computation and Machine Learning series). The MIT Press.](http://www.amazon.com/books/dp/026218253X)
-- Gelman, A., Carlin, J. B., Stern, H. S., Dunson, D. B., Vehtari, A., & Rubin, D. B. (2013). Bayesian Data Analysis, Third Edition. CRC Press.
+- [Gelman, A., Carlin, J. B., Stern, H. S., Dunson, D. B., Vehtari, A., & Rubin, D. B. (2013). Bayesian Data Analysis, Third Edition. CRC Press]
 
