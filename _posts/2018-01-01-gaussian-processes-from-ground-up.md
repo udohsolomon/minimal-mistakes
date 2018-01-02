@@ -210,14 +210,21 @@ Here is a sample of 10 realizations, predicted over a denser set of x-values:
 ![png](/assets/images/gpintro/output_44_1.png){: .align-center}
 
 
-While Univariate Gaussians are distributions over real valued variables, multivariate Gaussians are pairs or finite numbers of distributions over real valued variables, Gaussina processes are functions (infinite number of distibutions over real valued variables. This in general drives us to a notion called **regression**. 
+While univariate Gaussians are distributions over real valued variables, multivariate Gaussians are pairs or finite numbers of distributions over real valued variables, Gaussina processes are functions (infinite number of distibutions over real valued variables. This in general drives us to a notion called **regression**. 
 
 Regressions are quite good for denoising and smoothing. They do not follow every noise in the data. They are also good at predicting and forecasting. For example, we might be interested and want to know what our temperature would be at a particular time in the future. However, regression sometimes have what is called danger of parametric models. For example, trying to fit a quadractic model to a data may lead to the model missing out some important features. There are also dangers of overfitting and underfitting. Thare are the areas **Gaussian processes** really shine because they take care of these issues very well. 
+
+A Gaussian process is fully specified by its mean and covariance function. Once these are chosen, they are manipulated using probability rules to obtain inference and prediction. 
+
+The mean and covariance functions will be the focus of my next post.
+
+
+I will like to hear your thoughts on this and also appreciate any feedback.
 
 ---
 
 ## References
 
 - [Rasmussen, C. E., & Williams, C. K. I. (2005). Gaussian Processes for Machine Learning (Adaptive Computation and Machine Learning series). The MIT Press.](http://www.amazon.com/books/dp/026218253X)
-- [Gelman, A., Carlin, J. B., Stern, H. S., Dunson, D. B., Vehtari, A., & Rubin, D. B. (2013). Bayesian Data Analysis, Third Edition. CRC Press]
+- [Gelman, A., Carlin, J. B., Stern, H. S., Dunson, D. B., Vehtari, A., & Rubin, D. B. (2013). Bayesian Data Analysis, Third Edition. CRC Press](http://www.stat.columbia.edu/~gelman/book/)
 
