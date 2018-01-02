@@ -1,7 +1,7 @@
 ---
 title:  "Gaussian Processes from the Gorund Up!"
 header:
-
+  image: "assets/images/gpintro/bt.jpg"
 categories: 
   - Bayesian Inferences
 tags:
@@ -53,7 +53,7 @@ The equation expresses how our belief about the value of \\(\theta\\), as expres
 
 The denominator \\(P(y)\\) cannot be calculated directly, and is actually the expression in the numerator, integrated over all \\(\theta\\):
 
-\\[Pr(\theta|y) = \frac{Pr(y|\theta)Pr(\theta)}{\int Pr(y|\theta)Pr(\theta) d\theta}\\]
+$$ Pr(\theta|y) = \frac{Pr(y|\theta)Pr(\theta)}{\int Pr(y|\theta)Pr(\theta) d\theta}$$
 
 The intractability of this integral is one of the factors that has contributed to the under-utilization of Bayesian methods by statisticians.
 
@@ -122,39 +122,7 @@ m(x) &=0 \\
 k(x,x^{\prime}) &= \theta_1\exp\left(-\frac{\theta_2}{2}(x-x^{\prime})^2\right)
 \end{aligned}$$
 
-here, the covariance function is a **squared exponential**, for which values of $x$ and $x^{\prime}$ that are close together result in values of $k$ closer to 1 and those that are far apart return values closer to zero. 
-
-
-```python
-def exponential_cov(x, y, params):
-    return params[0] * np.exp( -0.5 * params[1] * np.subtract.outer(x, y)**2)
-```
-
-
-```python
-%matplotlib inline
-import numpy as np
-import matplotlib.pyplot as plt
-import matplotlib.cm as cmap
-import seaborn as sns
-sns.set_context('talk')
-
-fig, (ax1, ax2) = plt.subplots(1, 2, figsize=(12,5))
-xrange = np.linspace(-5, 5)
-ax1.plot(xrange, exponential_cov(0, xrange, [1, 1]))
-ax1.set_xlabel('$x$')
-ax1.set_ylabel('$cov(0, x)$')
-
-z = np.array([exponential_cov(xrange, xprime, [1, 1]) for xprime in xrange])
-ims = ax2.imshow(z, cmap="plasma", 
-       interpolation='none', 
-       extent=(0, 5, 5, 0))
-ax2.set_xlabel('$x$')
-ax2.set_ylabel('$x$')
-plt.colorbar(ims, ax=ax2)
-
-plt.tight_layout();
-```
+here, the covariance function is a **squared exponential**, for which values of $$x$$ and $$x^{\prime}$$ that are close together result in values of $$k$$ closer to 1 and those that are far apart return values closer to zero. 
 
 
 ![png](/assets/images/gpintro/output_5_0.png){: .align-center}
@@ -164,63 +132,9 @@ It may seem odd to simply adopt the zero function to represent the mean function
 
 For a finite number of points, the GP becomes a multivariate normal, with the mean and covariance as the mean functon and covariance function evaluated at those points.
 
-For example, consider just two points from a squared exponential covariance function with parameters $\theta_1=1, \theta_2=2$, sampled at locations $x_1=0$ and $x_2=0.6$.
+For example, consider just two points from a squared exponential covariance function with parameters $$\theta_1=1, \theta_2=2$$, sampled at locations $$x_1=0$$ and $$x_2=0.6$$.
 
-
-```python
-from functools import partial
-
-K = partial(exponential_cov, params=[1, 2])
-```
-
-The corresponding covariance matrix is this:
-
-
-```python
-cov = np.array([[K(0, 0), K(0, 0.6)], 
-                [K(0.6, 0), K(0.6, 0.6)]])
-cov
-```
-
-
-
-
-    array([[ 1.        ,  0.69767633],
-           [ 0.69767633,  1.        ]])
-
-
-
-Let's consider a value of -1 sampled from $x_1$. According to our model, there is a dependence regarding where $x_2$ will be located, governed by the covariance of the two variables.
-
-
-```python
-cov[1,1]
-```
-
-
-
-
-    1.0
-
-
-
-
-```python
-# Visualizing the bivariate Gaussian distribution contour
-# bivariate_normal(X, Y, sigmax=1.0, sigmay=1.0, mux=0.0, muy=0.0, sigmaxy=0.0)
-
-plt.figure(figsize =(10, 6))
-from matplotlib.mlab import bivariate_normal
-
-x = np.linspace(-3.0, 3.0)
-y = np.linspace(-3.0, 3.0)
-X, Y = np.meshgrid(x, y)
-
-Z = bivariate_normal(X, Y, cov[0,0], cov[1,1], 0.0, 0.6, cov[0,1])
-plt.contour(X,Y,Z)
-plt.vlines(-0.5, -4, 4, linestyles=':')
-plt.xlim(-3, 3); plt.ylim(-3, 3);
-```
+Let's consider a value of -1 sampled from $$x_1$$. According to our model, there is a dependence regarding where $$x_2$$ will be located, governed by the covariance of the two variables.
 
 
 ![png](/assets/images/gpintro/output_13_0.png){: .align-center}
@@ -230,18 +144,6 @@ We can apply the normal distribution of $x_2|x_1$ from above to see how $x_2$ is
 
 $$p(x_2|x_1) = \mathcal{N}(\mu_{x_1} + \Sigma_{x_1 x_2}\Sigma_{x_2}^{-1}(x_2-\mu_{x_2}), 
 \Sigma_{x_1}-\Sigma_{x_1 x_2}\Sigma_{x_2}^{-1}\Sigma_{x_1 x_2}^T)$$
-
-
-```python
-plt.figure(figsize =(10, 6))
-import scipy as sp
-
-plt.contour(X,Y,Z)
-plt.vlines(-1, -4, 4, linestyles=':')
-plt.plot(sp.stats.norm(0 + (cov[1,0]/cov[1,1]) * (0.6 - 0), cov[0,0] - cov[1,0]**2/cov[1,1]).pdf(x) - 1, x, 'r')
-plt.xlim(-3, 3); plt.ylim(-3, 3);
-```
-
 
 ![png](/assets/images/gpintro/output_15_0.png){: .align-center}
 
@@ -257,7 +159,7 @@ We are going generate realizations sequentially, point by point, using the lovel
 $$p(x|y) = \mathcal{N}(\mu_x + \Sigma_{xy}\Sigma_y^{-1}(y-\mu_y), 
 \Sigma_x-\Sigma_{xy}\Sigma_y^{-1}\Sigma_{xy}^T)$$
 
-And this the function that implements it:
+And this is the function that implements it:
 
 
 ```python
@@ -272,79 +174,12 @@ def conditional(x_new, x, y, params):
 
 We will start with a Gaussian process prior with hyperparameters $\theta_0=1, \theta_1=10$. We will also assume a zero function as the mean, so we can plot a band that represents one standard deviation from the mean.
 
-
-
-
-```python
-plt.figure(figsize =(10, 6))
-θ = [1, 10]
-σ_0 = exponential_cov(0, 0, θ)
-xpts = np.arange(-3, 3, step=0.01)
-plt.errorbar(xpts, np.zeros(len(xpts)), yerr=σ_0, capsize=0, color = 'c')
-plt.ylim(-3, 3);
-```
-
-
 ![png](/assets/images/gpintro/output_21_0.png){: .align-center}
 
 
 Let's select an arbitrary starting point to sample, say $x=1$. Since there are no prevous points, we can sample from an unconditional Gaussian:
 
-
-```python
-np.random.seed(42)
-
-x = [1.]
-y = [np.random.normal(scale=σ_0)]
-y
-```
-
-
-
-
-    [0.4967141530112327]
-
-
-
 We can now update our confidence band, given the point that we just sampled, using the covariance function to generate new point-wise intervals, conditional on the value $[x_0, y_0]$. 
-
-
-```python
-σ_1 = exponential_cov(x, x, θ)
-```
-
-
-```python
-def predict(x, data, kernel, params, sigma, t):
-    k = [kernel(x, y, params) for y in data]
-    Sinv = np.linalg.inv(sigma)
-    y_pred = np.dot(k, Sinv).dot(t)
-    sigma_new = kernel(x, x, params) - np.dot(k, Sinv).dot(k)
-    return y_pred, sigma_new
-```
-
-
-```python
-x_pred = np.linspace(-3, 3, 1000)
-predictions = [predict(i, x, exponential_cov, θ, σ_1, y) for i in x_pred]
-```
-
-
-```python
-plt.figure(figsize =(10, 6))
-y_pred, sigmas = np.transpose(predictions)
-plt.errorbar(x_pred, y_pred, yerr=sigmas, capsize=0, color = 'c')
-plt.plot(x, y, "ro")
-plt.xlim(-3, 3); plt.ylim(-3, 3);
-plt.legend(['data'])
-```
-
-
-
-
-    <matplotlib.legend.Legend at 0x7f35d6cc2b00>
-
-
 
 
 ![png](/assets/images/gpintro/output_28_1.png){: .align-center}
@@ -354,82 +189,10 @@ From here we can see that the sample point which is the **prior** was refined to
 
 As we go through this process and get more and more data, we are scribing out a smooth regression function and we are getting more confident about the envelopes around it. Intuitively, that is a **Gaussian Process**. 
 
-
-```python
-m, s = conditional([-0.7], x, y, θ)
-y2 = np.random.normal(m, s)
-y2
-```
-
-
-
-
-    -0.1382640378102619
-
-
-
-This point is added to the realization, and can be used to further update the location of the next point.
-
-
-```python
-x.append(-0.7)
-y.append(y2)
-```
-
-
-```python
-σ_2 = exponential_cov(x, x, θ)
-
-predictions = [predict(i, x, exponential_cov, θ, σ_2, y) for i in x_pred]
-```
-
-
-```python
-plt.figure(figsize =(10, 6))
-y_pred, sigmas = np.transpose(predictions)
-plt.errorbar(x_pred, y_pred, yerr=sigmas, capsize=0, color = 'c')
-plt.plot(x, y, "ro")
-plt.xlim(-3, 3); plt.ylim(-3, 3);
-```
-
-
 ![png](/assets/images/gpintro/output_34_0.png){: .align-center}
 
 
 Of course, sampling sequentially is just a heuristic to demonstrate how the covariance structure works. We can just as easily sample several points at once:
-
-
-```python
-x_more = [-2.1, -1.5, 0.3, 1.8, 2.5]
-mu, s = conditional(x_more, x, y, θ)
-y_more = np.random.multivariate_normal(mu, s)
-y_more
-```
-
-
-
-
-    array([-1.5128756 ,  0.52371713, -0.13952425, -0.93665367, -1.29343995])
-
-
-
-
-```python
-plt.figure(figsize =(10, 6))
-
-x += x_more
-y += y_more.tolist()
-
-σ_new = exponential_cov(x, x, θ)
-
-predictions = [predict(i, x, exponential_cov, θ, σ_new, y) for i in x_pred]
-
-y_pred, sigmas = np.transpose(predictions)
-plt.errorbar(x_pred, y_pred, yerr=sigmas, capsize=0, color = 'c')
-plt.plot(x, y, "ro")
-plt.ylim(-3, 3);
-```
-
 
 ![png](/assets/images/gpintro/output_37_0.png){: .align-center}
 
