@@ -1,7 +1,7 @@
 ---
-title:  "Gaussian Processes from the Gorund Up!"
+title:  "Gaussian Processes from the Ground Up!"
 header:
-  image: "assets/images/gpintro/bt.jpg"
+  image: "assets/images/gpintro/bayes_formula.jpg"
 categories: 
   - Bayesian Inferences
 tags:
@@ -74,7 +74,7 @@ The way we are now going to represent the **prior distribution** is the mean whi
 
 The major idea behind Gaussian processes is that a function can be modeled using an infinite dimensional multivariate Gaussian distribution. In other words, every point in the input space is associated with a random variable and the joint distribution of these is modeled as a multivariate Gaussian.
 
-Given $ x = ({x_1}, {x_2}) $ is jointly Gaussian with parameters 
+Given $$ x = (x_1, x_2) $$ is jointly Gaussian with parameters 
 
 $$ {\mu = \begin{pmatrix}{\mu_1}  \\ {\mu_2} \end{pmatrix}}, \space \space  \Sigma = \left({ \begin{array}{c} {\Sigma_{11}} & {\Sigma_{12}}  \\ {\Sigma_{22}} & {\Sigma_{22}}  \\ \end{array} }\right)$$
 
@@ -172,14 +172,14 @@ def conditional(x_new, x, y, params):
     return(mu.squeeze(), sigma.squeeze())
 ```
 
-We will start with a Gaussian process prior with hyperparameters $\theta_0=1, \theta_1=10$. We will also assume a zero function as the mean, so we can plot a band that represents one standard deviation from the mean.
+We will start with a Gaussian process prior with hyperparameters $$\theta_0=1, \theta_1=10$$. We will also assume a zero function as the mean, so we can plot a band that represents one standard deviation from the mean.
 
 ![png](/assets/images/gpintro/output_21_0.png){: .align-center}
 
 
-Let's select an arbitrary starting point to sample, say $x=1$. Since there are no prevous points, we can sample from an unconditional Gaussian:
+Let's select an arbitrary starting point to sample, say $$x=1$$. Since there are no prevous points, we can sample from an unconditional Gaussian:
 
-We can now update our confidence band, given the point that we just sampled, using the covariance function to generate new point-wise intervals, conditional on the value $[x_0, y_0]$. 
+We can now update our confidence band, given the point that we just sampled, using the covariance function to generate new point-wise intervals, conditional on the value $$[x_0, y_0]$$. 
 
 
 ![png](/assets/images/gpintro/output_28_1.png){: .align-center}
