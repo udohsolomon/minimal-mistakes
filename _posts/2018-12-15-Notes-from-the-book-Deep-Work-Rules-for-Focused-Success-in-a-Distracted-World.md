@@ -12,8 +12,6 @@ tags:
 mathjax: true
 ---
 
-## Notes from the book 'Deep Work: Rules for Focused Success in a Distracted World
-
 * Two Core Abilities for Thriving in the Digital Economy 
      - The ability to quickly master hard things. 
      - The ability to produce at an elite level, in terms of both quality and speed.
