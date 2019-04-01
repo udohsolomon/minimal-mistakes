@@ -81,7 +81,7 @@ theme: minimal-mistakes-jekyll
 author:
   name             : "Solomon UDOH"
   avatar           : "/images/bio_photo.jpg" # path of avatar image, e.g. "/assets/images/bio-photo.jpg"
-  bio              : "My deliberate attempt to be really really good in machine learning and data science"
+  bio              : "My deliberate attempt to be really good in machine learning and data science"
   location         : "Aberdeen, UK"
   email            :
   uri              :
