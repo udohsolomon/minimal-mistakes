@@ -9,7 +9,7 @@
 locale                   : "en-GB"
 title                    : "My musings on Machine learning and AI"
 title_separator          : "|"
-name                     : "Solomon UDOH"
+name                     : "Solomon Amos"
 description              : "An amazing website."
 url                      : "https://udohsolomon.github.io" # the base hostname & protocol for your site e.g. "https://mmistakes.github.io"
 baseurl                  : "" # the subpath of your site, e.g. "/blog"
@@ -79,10 +79,10 @@ theme: minimal-mistakes-jekyll
 
 # Site Author
 author:
-  name             : "Solomon UDOH"
+  name             : "Solomon Amos"
   avatar           : "/images/bio_photo.jpg" # path of avatar image, e.g. "/assets/images/bio-photo.jpg"
   bio              : "My deliberate attempt to be really good in machine learning and data science"
-  location         : "Aberdeen, UK"
+  location         : "York, UK"
   email            :
   uri              :
   bitbucket        :
