@@ -16,7 +16,7 @@ mathjax: true
 
 This reference architecture deployed on top of [Amazon Web Services (AWS)](https://aws.amazon.com) is an end-to-end tech stack built using Infrastructure as Code (IaC). 
  It is based on best practices described in [Web Application Hosting in the AWS Cloud](https://d1.awsstatic.com/whitepapers/aws-web-hosting-best-practices.pdf) white paper and customers requirements that runs on highly available and scalable mode. 
-![Infrastructure](assets/images/reference-architecture.png)
+![Infrastructure](/assets/images/reference-architecture.png){: .align-center}
 
 The Reference Architecture is highly customisable, so what's deployed may be a bit different from what is in the diagram.  Here is an overview of what is actually deployed:
 
